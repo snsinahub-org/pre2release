@@ -51,4 +51,19 @@ module.exports = class Releases {
             body: body,
         })
     }
+
+    convertTagToInt(tagName, prefix) {
+        return parseInt(tagName.replace(prefix, '').replace(/\./g, ''))
+    }
+
+    compareReleases(first, firstMatched, prefix) {
+        let firstTag = convertTagToInt(first.tagName, prefix)
+        let firstMatchedTag = convertTagToInt(firstMatched.tagName, prefix)
+        console.log("TAGS --> ", firstTag, ' -- ', firstMatchedTag)
+        if(firstTag >= firstMatchedTag) {
+            return true
+        } else {
+            return false
+        }
+    }
 }

@@ -43,8 +43,9 @@ async function run() {
     console.log("tagsObj OBJECT: ", JSON.stringify(tagsObj, '', 2))
     console.log("---------------------------------------------------------------------")
     console.log("First TAG: ", JSON.stringify(tagsObj[0], '', 2))
+    let prereleaseIsNewest = release.compareReleases(tagsObj[0], jsonUtils.firstItem('tagName'), prefix)
     
-    if(jsonUtils.jsonObj.length > 0 ){
+    if(jsonUtils.jsonObj.length > 0 && prereleaseIsNewest == true){
         latestVersion = jsonUtils.firstItem('tagName');
         // newVersion = jsonUtils.upgradeVersion(latestVersion, type, prefix);
 
