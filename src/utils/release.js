@@ -53,7 +53,6 @@ module.exports = class Releases {
         return await this.octokit.request('PATCH /repos/{owner}/{repo}/releases/{release_id}', {
             owner: owner,
             repo: repo,
-            tag: tag,
             release_id: release.data.id,
             tag_name: release.data.tag_name,
             target_commitish: release.data.target_commitish,
