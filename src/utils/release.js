@@ -58,7 +58,7 @@ module.exports = class Releases {
 
     compareReleases(first, firstMatched, prefix) {
         let firstTag = this.convertTagToInt(first.tagName, prefix)
-        let firstMatchedTag = this.convertTagToInt(firstMatched[0].tagName, prefix)
+        let firstMatchedTag = firstMatched[0]
         console.log("TAGS --> ", firstTag, ' -- ', firstMatchedTag)
         if(firstTag >= firstMatchedTag) {
             return true
