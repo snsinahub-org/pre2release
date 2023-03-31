@@ -47,6 +47,8 @@ async function run() {
     
     if(jsonUtils.jsonObj.length > 0 && prereleaseIsNewest == true){
         latestVersion = jsonUtils.firstItem('tagName');
+        let id = release.getReleaseID(owner, repo, latestVersion)
+        console.log("ID", id)
         // newVersion = jsonUtils.upgradeVersion(latestVersion, type, prefix);
 
 

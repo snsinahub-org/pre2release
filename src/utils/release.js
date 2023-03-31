@@ -38,6 +38,17 @@ module.exports = class Releases {
           });
     }
 
+    async getReleaseID(owner, repo, tag) {
+        return await this.octokit.rest.repos.request('GET /repos/{owner}/{repo}/releases/tags/{tag}', {
+            owner: owner,
+            repo: repo,
+            tag: tag,
+            headers: {
+                'X-GitHub-Api-Version': '2022-11-28'
+            }
+          });
+    }
+
     async createRelease(owner, repo, tagName, branch, prerelease, body) {
                 
         return await this.octokit.rest.repos.createRelease({
