@@ -33,6 +33,7 @@ module.exports = class GetReleaseTags {
                             name
                             createdAt
                             tagName
+                            isPrerelease
                         }
                     }
                 }
