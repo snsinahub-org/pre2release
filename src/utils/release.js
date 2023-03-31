@@ -39,7 +39,7 @@ module.exports = class Releases {
     }
 
     async getReleaseID(owner, repo, tag) {
-        return await this.octokit.rest.repos.request('GET /repos/{owner}/{repo}/releases/tags/{tag}', {
+        return await this.octokit.request('GET /repos/{owner}/{repo}/releases/tags/{tag}', {
             owner: owner,
             repo: repo,
             tag: tag,
