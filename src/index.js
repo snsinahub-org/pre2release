@@ -38,7 +38,7 @@ async function run() {
     let newVersion = '';
     let latestVersion =  ''
     
-    if(jsonUtils.jsonObj.length > 0 && !exitOnMissingType){
+    if(jsonUtils.jsonObj.length > 0 ){
         latestVersion = jsonUtils.firstItem('tagName');
         // newVersion = jsonUtils.upgradeVersion(latestVersion, type, prefix);
 
