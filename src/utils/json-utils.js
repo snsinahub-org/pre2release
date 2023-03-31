@@ -49,7 +49,7 @@ module.exports = class JsonUtils {
     filterByPrefix(prefix) {
         let matched = _.filter(this.jsonObj, function(obj) { 
 
-            if( obj.isPrerelease == 'true') {
+            if( obj.isPrerelease == true) {
                 return obj.tagName.startsWith(prefix)
             }
         })
