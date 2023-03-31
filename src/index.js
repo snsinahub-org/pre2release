@@ -55,7 +55,7 @@ async function run() {
 
 
     } else {
-        newVersion = `${prefix}1.0.0`;
+        latestVersion = "No release found";
     }
 
    
