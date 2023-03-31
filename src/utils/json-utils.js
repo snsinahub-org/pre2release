@@ -60,7 +60,8 @@ module.exports = class JsonUtils {
                 "tag": parseInt(o.tagName.replace(prefix, '').replace(/\./g, '')),
                 "major": parseInt(version[0]),
                 "minor": parseInt(version[1]),
-                "patch": parseInt(version[2])
+                "patch": parseInt(version[2]),
+                "isPrerelease": o.isPrerelease
             }
                         
             return obj
@@ -96,7 +97,8 @@ module.exports = class JsonUtils {
                 "name": o.name,
                 "createdAt": o.createdAt,
                 "tagName": o.tagName,
-                "tag": parseInt(o.tagName.replace(/\./g, ''))
+                "tag": parseInt(o.tagName.replace(/\./g, '')),
+                "isPrerelease": o.isPrerelease
             }
             
             return obj
