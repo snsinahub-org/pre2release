@@ -53,18 +53,20 @@ module.exports = class JsonUtils {
 
         let plain = _.map(matched, function(o){
             let version = o.tagName.replace(prefix, '').split('.')
-            let obj = {
-                "name": o.name,
-                "createdAt": o.createdAt,
-                "tagName": o.tagName,
-                "tag": parseInt(o.tagName.replace(prefix, '').replace(/\./g, '')),
-                "major": parseInt(version[0]),
-                "minor": parseInt(version[1]),
-                "patch": parseInt(version[2]),
-                "isPrerelease": o.isPrerelease
+            if( obj.isPrerelease == 'true') {
+                let obj = {
+                    "name": o.name,
+                    "createdAt": o.createdAt,
+                    "tagName": o.tagName,
+                    "tag": parseInt(o.tagName.replace(prefix, '').replace(/\./g, '')),
+                    "major": parseInt(version[0]),
+                    "minor": parseInt(version[1]),
+                    "patch": parseInt(version[2]),
+                    "isPrerelease": o.isPrerelease
+                }
+                            
+                return obj
             }
-                        
-            return obj
         })
         
         let sorted = _.orderBy(plain, ['major', 'minor', 'patch'], ['desc', 'desc', 'desc'])
@@ -81,7 +83,7 @@ module.exports = class JsonUtils {
         let matched = _.filter(this.jsonObj, function(obj) { 
             
             let o = obj.tagName.split('.')
-            if(!isNaN(o[0])){
+            if(!isNaN(o[0]) && obj.isPrerelease == 'true'){
                 obj.major = parseInt(o[0])
                 obj.minor = parseInt(o[1])
                 obj.patch = parseInt(o[2])
