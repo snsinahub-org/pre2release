@@ -85,7 +85,7 @@ module.exports = class JsonUtils {
         let matched = _.filter(this.jsonObj, function(obj) { 
             
             let o = obj.tagName.split('.')
-            if(!isNaN(o[0]) && obj.isPrerelease == 'true'){
+            if(!isNaN(o[0]) && obj.isPrerelease == true){
                 obj.major = parseInt(o[0])
                 obj.minor = parseInt(o[1])
                 obj.patch = parseInt(o[2])
