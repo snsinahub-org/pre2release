@@ -37,6 +37,8 @@ async function run() {
 
     let newVersion = '';
     let latestVersion =  ''
+
+    console.log("JSON OBJECT: ", JSON.stringify(jsonUtils.jsonObj, '', 2))
     
     if(jsonUtils.jsonObj.length > 0 ){
         latestVersion = jsonUtils.firstItem('tagName');
