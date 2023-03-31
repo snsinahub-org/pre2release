@@ -17,13 +17,11 @@ module.exports = class Releases {
     releaseData(data) {
         this.data = data
         this.id = data['data']['id']
-        console.log('ID: ', this.id)
     }
 
     async uploadFiles(owner, repo, assets) {
         let files = assets.split('\n')
         for(let i = 0; i < files.length; i++) {
-            console.log("FILE: ", files[i])
             await this.uploadAsset(owner, repo, files[i]);
         }
     }
@@ -87,7 +85,6 @@ module.exports = class Releases {
     compareReleases(first, firstMatched, prefix) {
         let firstTag = this.convertTagToInt(first.tagName, prefix)
         let firstMatchedTag = firstMatched.tag
-        console.log("TAGS --> ", firstTag, ' -- ', firstMatchedTag)
         if(firstMatchedTag >= firstTag) {
             return true
         } else {

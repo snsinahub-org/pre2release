@@ -12,7 +12,6 @@ module.exports = class JsonUtils {
         let versionObject = version.replace(prefix, '').split('.')
         let updatedVersion = ''
         let major, minor, patch = ''
-        console.log('HEHE: ', JSON.stringify(versionObject), type, type.toLowerCase())
         
         switch(type.toLowerCase()) {
             case 'major': 

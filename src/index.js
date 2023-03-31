@@ -38,18 +38,13 @@ async function run() {
     let newVersion = '';
     let latestVersion =  ''
 
-    console.log("JSON OBJECT: ", JSON.stringify(jsonUtils.jsonObj, '', 2))
-    console.log("---------------------------------------------------------------------")
-    console.log("tagsObj OBJECT: ", JSON.stringify(tagsObj, '', 2))
-    console.log("---------------------------------------------------------------------")
-    console.log("First TAG: ", JSON.stringify(tagsObj[0], '', 2))
+    
     let prereleaseIsNewest = release.compareReleases(tagsObj[0], jsonUtils.jsonObj[0], prefix)
     
     if(jsonUtils.jsonObj.length > 0 && prereleaseIsNewest == true){
         latestVersion = jsonUtils.firstItem('tagName');
         let idObject = await release.getReleaseID(owner, repo, latestVersion)
         let latestRelease = await release.updateReleaseToLatest(owner, repo, idObject)
-        console.log("ID", JSON.stringify(latestRelease, '', 2))
 
         // newVersion = jsonUtils.upgradeVersion(latestVersion, type, prefix);
 
