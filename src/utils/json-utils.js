@@ -53,7 +53,7 @@ module.exports = class JsonUtils {
 
         let plain = _.map(matched, function(o){
             let version = o.tagName.replace(prefix, '').split('.')
-            if( obj.isPrerelease == 'true') {
+            if( o.isPrerelease == 'true') {
                 let obj = {
                     "name": o.name,
                     "createdAt": o.createdAt,
