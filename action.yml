@@ -1,0 +1,23 @@
+name: Semver
+description: Substitute variables for JSON/XML - first release will support JSON
+inputs:
+  repo:
+    required: false
+    default: ${{ github.repository }}
+  token:
+    required: false
+    default: ${{ github.token }}  
+  prefix:
+    required: true
+    default: ''
+  prerelease:
+    required: false
+    default: no
+  
+  
+outputs:
+  version:
+    description: version
+runs:
+  using: "node16"
+  main: src/index.js
