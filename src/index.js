@@ -41,6 +41,8 @@ async function run() {
     console.log("JSON OBJECT: ", JSON.stringify(jsonUtils.jsonObj, '', 2))
     console.log("---------------------------------------------------------------------")
     console.log("tagsObj OBJECT: ", JSON.stringify(tagsObj, '', 2))
+    console.log("---------------------------------------------------------------------")
+    console.log("First TAG: ", JSON.stringify(jsonUtils.firstItem(), '', 2))
     
     if(jsonUtils.jsonObj.length > 0 ){
         latestVersion = jsonUtils.firstItem('tagName');

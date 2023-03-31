@@ -40,8 +40,8 @@ module.exports = class JsonUtils {
     }
 
     // return first item after sorting tags
-    firstItem(keyName) {
-        let first = this.jsonObj[0][keyName]
+    firstItem() {
+        let first = this.jsonObj[0]
         return first
     }
 
