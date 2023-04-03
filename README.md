@@ -1,5 +1,5 @@
 # Pre-release to release
-Pre-release to release is an action to automatically finds repository's latest pre-release and converts it to a release and set the release as `latest`
+pre2release is an action to automatically finds repository's latest pre-release and converts it to a release and set the release as `latest`
 
 ## Action Parameters
 
