@@ -69,7 +69,8 @@ jobs:
         id: version
         uses: "snsinahub-org/pre2release@v1.1.0"
         with:          
-          prefix: 'v'                 
+          prefix: 'v'
+          REQUIRE_PRERELEASE: 'true'
       - name: 'print version'
         run: |
          echo ${{ steps.version.outputs.version }}
