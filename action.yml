@@ -13,7 +13,9 @@ inputs:
   prerelease:
     required: false
     default: no
-  
+  REQUIRE_PRERELEASE:
+    required: false
+    default: 'true'
   
 outputs:
   version:
