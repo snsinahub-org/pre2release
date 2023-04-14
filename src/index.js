@@ -56,7 +56,7 @@ async function run() {
         latestVersion = "Error: No release found";
     }
 
-   
+    console.log(prereleaseIsNewest, latestVersion, REQUIRE_PRERELEASE)
 
 
     fs.appendFileSync(process.env.GITHUB_OUTPUT, "version=" + latestVersion);
