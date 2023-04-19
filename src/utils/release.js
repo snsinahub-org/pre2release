@@ -37,6 +37,7 @@ module.exports = class Releases {
     }
 
     async getReleaseID(owner, repo, tag) {
+        console.log("TAG: ", tag)
         return await this.octokit.request('GET /repos/{owner}/{repo}/releases/tags/{tag}', {
             owner: owner,
             repo: repo,
@@ -48,6 +49,7 @@ module.exports = class Releases {
     }
 
     async updateReleaseToLatest(owner, repo, release) {
+        console.log(JSON.stringify(release))
         return await this.octokit.request('PATCH /repos/{owner}/{repo}/releases/{release_id}', {
             owner: owner,
             repo: repo,
