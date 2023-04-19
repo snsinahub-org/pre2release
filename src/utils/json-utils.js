@@ -82,7 +82,7 @@ module.exports = class JsonUtils {
     // filter and sort tags when there is no tag's prefix
     filterNoPrefix() {
         let matched = _.filter(this.jsonObj, function(obj) { 
-            console.log("MATCHED:", JSON.stringify(obj, '', 2))
+            console.log("MATCHED:", isNaN(o[0]))
             let o = obj.tagName.split('.')
             if(!isNaN(o[0]) && obj.isPrerelease == true){
                 obj.major = parseInt(o[0])
