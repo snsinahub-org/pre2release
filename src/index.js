@@ -53,7 +53,8 @@ async function run() {
     } else if(REQUIRE_PRERELEASE == 'false' && prereleaseIsNewest == false) {
         latestVersion = jsonUtils.firstItem('tagName');
     } else {
-        latestVersion = "Error: No release found";
+        // latestVersion = "Error: No release found";
+        core.setFailed(error.message);
     }
 
     console.log(prereleaseIsNewest, latestVersion, REQUIRE_PRERELEASE)
