@@ -29,7 +29,7 @@ async function run() {
     
     let tagsObj = tags.getTags(repository);
     const jsonUtils = new JsonUtils(tagsObj); 
-    console.log(JSON.stringify(jsonUtils.jsonObj, '', 2))
+    console.log(JSON.stringify(jsonUtils.jsonObj[0], '', 2))
     
 
     if(prefix == '') {
