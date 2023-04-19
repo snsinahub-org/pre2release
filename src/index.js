@@ -33,8 +33,10 @@ async function run() {
     
 
     if(prefix == '') {
+        console.log("NO PREFIX")
         jsonUtils.filterNoPrefix()
     } else {
+        console.log("WITH PREFIX")
         jsonUtils.filterByPrefix(prefix);
     } 
 
