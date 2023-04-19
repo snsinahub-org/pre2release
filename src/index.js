@@ -17,9 +17,6 @@ async function run() {
     let owner = repoFull[0];
     let repo = repoFull[1]
 
-
-
-
     // class initializations
     const release = new Release(myToken);    
     
@@ -51,6 +48,7 @@ async function run() {
 
 
     } else if(REQUIRE_PRERELEASE == 'false' && prereleaseIsNewest == false) {
+        console.log(JSON.stringify(tagsObj))
         console.log("it goes here")
         latestVersion = tagsObj[0].name //jsonUtils.firstItem('tagName');
     } else {
