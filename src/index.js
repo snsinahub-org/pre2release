@@ -29,7 +29,7 @@ async function run() {
     
     let tagsObj = tags.getTags(repository);
     const jsonUtils = new JsonUtils(tagsObj); 
-    console.log(JSON.stringify(jsonUtils.jsonObj[0], '', 2))
+    
     
 
     if(prefix == '') {
@@ -42,7 +42,7 @@ async function run() {
     let latestVersion =  ''
 
     
-    // let prereleaseIsNewest = release.compareReleases(tagsObj[0], jsonUtils.jsonObj[0], prefix)
+    let prereleaseIsNewest = release.compareReleases(tagsObj[0], jsonUtils.jsonObj[0], prefix)
     
     // if(jsonUtils.jsonObj.length > 0 && prereleaseIsNewest == true){
     //     latestVersion = jsonUtils.firstItem('tagName');

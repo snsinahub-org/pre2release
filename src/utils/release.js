@@ -83,6 +83,7 @@ module.exports = class Releases {
     }
 
     compareReleases(first, firstMatched, prefix) {
+        console.log(JSON.stringify(firstMatched, '', 2), typeof firstMatched)
         let firstTag = this.convertTagToInt(first.tagName, prefix)
         let firstMatchedTag = firstMatched.tag
         if(firstMatchedTag >= firstTag) {
