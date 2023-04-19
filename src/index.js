@@ -38,6 +38,8 @@ async function run() {
         jsonUtils.filterByPrefix(prefix);
     } 
 
+    console.log("SSSSSSSSSSSSSSSSS", JSON.stringify(jsonUtils.jsonObj[0], '', 2))
+
     let newVersion = '';
     let latestVersion =  ''
 
