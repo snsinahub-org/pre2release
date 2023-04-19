@@ -23,6 +23,7 @@ async function run() {
     
     
     const { repository } = await tags.getAllTags(owner, repo, myToken);
+    console.log(JSON.stringify(repository))
     
     let tagsObj = tags.getTags(repository);
     const jsonUtils = new JsonUtils(tagsObj); 
@@ -48,7 +49,7 @@ async function run() {
 
 
     } else if(REQUIRE_PRERELEASE == 'false' && prereleaseIsNewest == false) {
-        console.log(JSON.stringify(tagsObj))
+        
         console.log("it goes here")
         latestVersion = tagsObj[0].name //jsonUtils.firstItem('tagName');
     } else {
