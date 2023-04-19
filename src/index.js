@@ -26,7 +26,7 @@ async function run() {
     
     
     const { repository } = await tags.getAllTags(owner, repo, myToken);
-    
+    console.log(JSON.stringify(repository, '', 2))
     let tagsObj = tags.getTags(repository);
     const jsonUtils = new JsonUtils(tagsObj); 
 
