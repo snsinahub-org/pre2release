@@ -41,27 +41,27 @@ async function run() {
     let latestVersion =  ''
 
     
-    let prereleaseIsNewest = release.compareReleases(tagsObj[0], jsonUtils.jsonObj[0], prefix)
+    // let prereleaseIsNewest = release.compareReleases(tagsObj[0], jsonUtils.jsonObj[0], prefix)
     
-    if(jsonUtils.jsonObj.length > 0 && prereleaseIsNewest == true){
-        latestVersion = jsonUtils.firstItem('tagName');
-        let idObject = await release.getReleaseID(owner, repo, latestVersion)
-        let latestRelease = await release.updateReleaseToLatest(owner, repo, idObject)
+    // if(jsonUtils.jsonObj.length > 0 && prereleaseIsNewest == true){
+    //     latestVersion = jsonUtils.firstItem('tagName');
+    //     let idObject = await release.getReleaseID(owner, repo, latestVersion)
+    //     let latestRelease = await release.updateReleaseToLatest(owner, repo, idObject)
 
-        // newVersion = jsonUtils.upgradeVersion(latestVersion, type, prefix);
-
-
-    } else if(REQUIRE_PRERELEASE == 'false' && prereleaseIsNewest == false) {
-        latestVersion = tagsObj[0].name //jsonUtils.firstItem('tagName');
-    } else {
-        // core.setFailed('Error: No release found');
-    }
-
-    console.log(prereleaseIsNewest, latestVersion, REQUIRE_PRERELEASE)
+    //     // newVersion = jsonUtils.upgradeVersion(latestVersion, type, prefix);
 
 
-    fs.appendFileSync(process.env.GITHUB_OUTPUT, "version=" + latestVersion);
-    const octokit = github.getOctokit(myToken);
+    // } else if(REQUIRE_PRERELEASE == 'false' && prereleaseIsNewest == false) {
+    //     latestVersion = tagsObj[0].name //jsonUtils.firstItem('tagName');
+    // } else {
+    //     // core.setFailed('Error: No release found');
+    // }
+
+    // console.log(prereleaseIsNewest, latestVersion, REQUIRE_PRERELEASE)
+
+
+    // fs.appendFileSync(process.env.GITHUB_OUTPUT, "version=" + latestVersion);
+    // const octokit = github.getOctokit(myToken);
 }
 
 run();
