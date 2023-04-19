@@ -54,7 +54,7 @@ async function run() {
         latestVersion = jsonUtils.firstItem('tagName');
     } else {
         // latestVersion = "Error: No release found";
-        core.setFailed(error.message);
+        core.setFailed('Error: No release found');
     }
 
     console.log(prereleaseIsNewest, latestVersion, REQUIRE_PRERELEASE)
