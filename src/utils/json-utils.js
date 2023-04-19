@@ -94,6 +94,8 @@ module.exports = class JsonUtils {
             
         })
 
+        console.log("MATCHED:", JSON.stringify(matched, '', 2))
+
         let plain = _.map(matched, function(o){
             
             let obj = {
