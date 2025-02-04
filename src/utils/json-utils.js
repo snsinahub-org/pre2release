@@ -89,10 +89,30 @@ module.exports = class JsonUtils {
         let matched = _.filter(this.jsonObj, function(obj) {
             return regex.test(obj.tagName);
         });
-        this.jsonObj = matched;
 
-        console.log("MATCHED: ", JSON.stringify(matched, null, 2))
-        return matched;
+        let plain = _.map(matched, function(o){
+            let version = o.tagName.replace(prefix, '').split('.')
+            
+            let obj = {
+                "name": o.name,
+                "createdAt": o.createdAt,
+                "tagName": o.tagName,
+                "tag": parseInt(o.tagName.replace(prefix, '').replace(/\./g, '')),
+                "major": parseInt(version[0]),
+                "minor": parseInt(version[1]),
+                "patch": parseInt(version[2]),
+                "isPrerelease": o.isPrerelease
+            }
+                        
+            return obj
+        })
+        
+        let sorted = _.orderBy(plain, ['major', 'minor', 'patch'], ['desc', 'desc', 'desc'])
+
+        this.jsonObj = sorted;
+
+        console.log("MATCHED: ", JSON.stringify(sorted, null, 2))
+        return sorted;
 
         // let matched = _.filter(this.jsonObj, function(obj) { 
 
