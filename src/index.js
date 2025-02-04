@@ -31,8 +31,8 @@ async function run() {
     let tagsObj = tags.getTags(repository);
     const jsonUtils = new JsonUtils(tagsObj); 
 
-    console.log(JSON.stringify("TAGS OBJECT: ", tagsObj, null, 2))
-    console.log(JSON.stringify("JSON UTILS: ", jsonUtils.jsonObj, null, 2))
+    console.log("TAGS OBJECT: ", JSON.stringify(tagsObj, null, 2))
+    console.log(JSON.stringify(jsonUtils.jsonObj, null, 2))
     console.log("ONE TAG: ", jsonUtils.firstItem('tagName'))
 
     if(startsWith != '') {
