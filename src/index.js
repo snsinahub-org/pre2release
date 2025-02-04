@@ -10,7 +10,7 @@ const { json } = require('stream/consumers');
 async function run() {
     // Inputs
     const myToken = core.getInput('token');
-    const prefix = core.getInput('prefix');
+    let prefix = core.getInput('prefix');
     const prerelease = core.getInput('prerelease');
     const REQUIRE_PRERELEASE = core.getInput('REQUIRE_PRERELEASE');
     const repoFull = core.getInput('repo').split('/');
