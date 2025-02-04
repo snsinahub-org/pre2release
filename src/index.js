@@ -36,7 +36,7 @@ async function run() {
     console.log("JSON UTILS: ", JSON.stringify(jsonUtils.jsonObj, null, 2))
     
     if(startsWith !=  '') {       
-        prefix = startsWith
+        prefix = ''
     }
 
     if(prefix == '') {
