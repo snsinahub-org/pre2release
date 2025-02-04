@@ -60,7 +60,7 @@ async function run() {
     console.log("ONE TAG AFTER: ", jsonUtils.firstItem('tagName'))
     
     if(jsonUtils.jsonObj.length > 0 && prereleaseIsNewest == true){
-        
+        console.log("JSON UTILS FIRST IF : ", JSON.stringify(jsonUtils.jsonObj, null, 2))
         latestVersion = jsonUtils.firstItem('tagName');
         let idObject = await release.getReleaseID(owner, repo, latestVersion)
         let latestRelease = await release.updateReleaseToLatest(owner, repo, idObject)
