@@ -34,7 +34,7 @@ async function run() {
 
     console.log("TAGS OBJECT: ", JSON.stringify(tagsObj, null, 2))
     console.log("JSON UTILS: ", JSON.stringify(jsonUtils.jsonObj, null, 2))
-    console.log("ONE TAG: ", jsonUtils.firstItem('tagName'))
+    
 
     if(prefix == '') {
         jsonUtils.filterNoPrefix()
@@ -57,6 +57,7 @@ async function run() {
     } 
 
     console.log("JSON UTILS AFTER FILTER: ", JSON.stringify(jsonUtils.jsonObj, null, 2))
+    console.log("ONE TAG AFTER: ", jsonUtils.firstItem('tagName'))
     
     if(jsonUtils.jsonObj.length > 0 && prereleaseIsNewest == true){
         
@@ -75,7 +76,7 @@ async function run() {
 
     console.log(prereleaseIsNewest, latestVersion, REQUIRE_PRERELEASE)
 
-
+    console.log("ONE TAG AFTER: ", latestVersion)
     fs.appendFileSync(process.env.GITHUB_OUTPUT, "version=" + latestVersion);
     const octokit = github.getOctokit(myToken);
 }
