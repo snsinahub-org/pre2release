@@ -57,7 +57,7 @@ async function run() {
     } 
 
     console.log("JSON UTILS AFTER FILTER: ", JSON.stringify(jsonUtils.jsonObj, null, 2))
-    console.log("ONE TAG AFTER: ", jsonUtils.firstItem('tagName'))
+   
     
     if(jsonUtils.jsonObj.length > 0 && prereleaseIsNewest == true){
         console.log("JSON UTILS FIRST IF : ", JSON.stringify(jsonUtils.jsonObj, null, 2))
