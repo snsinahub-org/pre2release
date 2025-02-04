@@ -32,7 +32,7 @@ async function run() {
     const jsonUtils = new JsonUtils(tagsObj); 
 
     console.log("TAGS OBJECT: ", JSON.stringify(tagsObj, null, 2))
-    console.log(JSON.stringify(jsonUtils.jsonObj, null, 2))
+    console.log("JSON UTILS: ", JSON.stringify(jsonUtils.jsonObj, null, 2))
     console.log("ONE TAG: ", jsonUtils.firstItem('tagName'))
 
     if(startsWith != '') {
