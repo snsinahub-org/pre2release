@@ -35,14 +35,12 @@ async function run() {
     console.log("TAGS OBJECT: ", JSON.stringify(tagsObj, null, 2))
     console.log("JSON UTILS: ", JSON.stringify(jsonUtils.jsonObj, null, 2))
     
-    if(startsWith !=  '') {       
-        prefix = ''
-    }
-
-    if(prefix == '') {
-        jsonUtils.filterNoPrefix()
-    } else {
-        jsonUtils.filterByPrefix(prefix);
+    if(startsWith ==  '') {       
+        if(prefix == '') {
+            jsonUtils.filterNoPrefix()
+        } else {
+            jsonUtils.filterByPrefix(prefix);
+        }
     }
     
 
