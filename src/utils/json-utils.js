@@ -87,6 +87,7 @@ module.exports = class JsonUtils {
         let matched = _.filter(this.jsonObj, function(obj) {
             return regex.test(obj.tagName);
         });
+        this.jsonObj = matched;
 
         console.log("MATCHED: ", JSON.stringify(matched, null, 2))
         return matched;
