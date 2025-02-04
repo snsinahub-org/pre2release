@@ -16,6 +16,7 @@ async function run() {
     const tags = new getTags();
     let owner = repoFull[0];
     let repo = repoFull[1]
+    let startsWith = core.getInput('starts-with');
 
 
 
@@ -30,11 +31,20 @@ async function run() {
     let tagsObj = tags.getTags(repository);
     const jsonUtils = new JsonUtils(tagsObj); 
 
-    if(prefix == '') {
-        jsonUtils.filterNoPrefix()
+    console.log(JSON.stringify(tagsObj, null, 2))
+    console.log(JSON.stringify(sonUtils.jsonObj, null, 2))
+    console.log(jsonUtils.firstItem('tagName'))
+
+    if(startsWith != '') {
+        
     } else {
-        jsonUtils.filterByPrefix(prefix);
-    } 
+        if(prefix == '') {
+            jsonUtils.filterNoPrefix()
+        } else {
+            jsonUtils.filterByPrefix(prefix);
+        } 
+    }
+    
 
     let newVersion = '';
     let latestVersion =  ''
