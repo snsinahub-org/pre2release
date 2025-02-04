@@ -5,6 +5,7 @@ const { graphql } = require("@octokit/graphql");
 const getTags = require('./utils/get-tags.js');
 const JsonUtils = require('./utils/json-utils.js');
 const Release = require('./utils/release.js');
+const { json } = require('stream/consumers');
 
 async function run() {
     // Inputs
@@ -35,15 +36,13 @@ async function run() {
     console.log("JSON UTILS: ", JSON.stringify(jsonUtils.jsonObj, null, 2))
     console.log("ONE TAG: ", jsonUtils.firstItem('tagName'))
 
-    if(startsWith != '') {
-        
+    if(prefix == '') {
+        jsonUtils.filterNoPrefix()
     } else {
-        if(prefix == '') {
-            jsonUtils.filterNoPrefix()
-        } else {
-            jsonUtils.filterByPrefix(prefix);
-        } 
+        jsonUtils.filterByPrefix(prefix);
     }
+
+    
     
 
     let newVersion = '';
@@ -51,7 +50,14 @@ async function run() {
 
     
     let prereleaseIsNewest = release.compareReleases(tagsObj[0], jsonUtils.jsonObj[0], prefix)
+    
+
+    if(startsWith != '') {
+        jsonUtils.filterByStartsWith(startsWith);
+    } 
+
     console.log("JSON UTILS AFTER FILTER: ", JSON.stringify(jsonUtils.jsonObj, null, 2))
+    
     if(jsonUtils.jsonObj.length > 0 && prereleaseIsNewest == true){
         
         latestVersion = jsonUtils.firstItem('tagName');
