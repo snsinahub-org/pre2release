@@ -60,7 +60,13 @@ async function run() {
 
     console.log("prereleaseIsNewest: ", JSON.stringify(jsonUtils.jsonObj, null, 2))
 
-    let prereleaseIsNewest = release.compareReleases(tagsObj[0], jsonUtils.jsonObj[0], prefix)
+    let prereleaseIsNewest = false
+
+    if(tagsObj.length > 0 && jsonUtils.jsonObj.length > 0) {
+
+        let prereleaseIsNewest = release.compareReleases(tagsObj[0], jsonUtils.jsonObj[0], prefix)
+    } 
+        
 
     console.log("JSON UTILS AFTER FILTER: ", JSON.stringify(jsonUtils.jsonObj, null, 2))
    
