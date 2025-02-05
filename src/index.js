@@ -38,8 +38,10 @@ async function run() {
     
     if(startsWith.trim() ==  '') {       
         if(prefix == '') {
+            console.log("no prefix")
             jsonUtils.filterNoPrefix()
         } else {
+            console.log("prefix: ", prefix)
             jsonUtils.filterByPrefix(prefix);
         }
     }
