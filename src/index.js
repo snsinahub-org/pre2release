@@ -36,7 +36,7 @@ async function run() {
     console.log("JSON UTILS: ", JSON.stringify(jsonUtils.jsonObj, null, 2))
     console.log("startsWith: '", startsWith, "'")
     
-    if(startsWith ==  '') {       
+    if(startsWith.trim() ==  '') {       
         if(prefix == '') {
             jsonUtils.filterNoPrefix()
         } else {
@@ -52,7 +52,7 @@ async function run() {
     
     
 
-    if(startsWith != '') {
+    if(startsWith.trim() != '') {
         jsonUtils.filterByStartsWith(startsWith);
     } 
 
