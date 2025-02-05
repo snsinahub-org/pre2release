@@ -91,13 +91,13 @@ module.exports = class JsonUtils {
         });        
 
         let plain = _.map(matched, function(o){
-            let version = o.tagName.replace(prefix, '').split('.')
+            let version = o.tagName.replace(startsWith, '').split('.')
             
             let obj = {
                 "name": o.name,
                 "createdAt": o.createdAt,
                 "tagName": o.tagName,
-                "tag": parseInt(o.tagName.replace(prefix, '').replace(/\./g, '')),
+                "tag": parseInt(o.tagName.replace(startsWith, '').replace(/\./g, '')),
                 "major": parseInt(version[0]),
                 "minor": parseInt(version[1]),
                 "patch": parseInt(version[2]),
