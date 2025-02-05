@@ -106,12 +106,15 @@ module.exports = class JsonUtils {
                         
             return obj
         })
+
+        console.log("MATCHED: ", JSON.stringify(matched, null, 2))
+        console.log("PLAIN: ", JSON.stringify(plain, null, 2))
         
-        let sorted = _.orderBy(plain, ['major', 'minor', 'patch'], ['desc', 'asc', 'asc'])
+        let sorted = _.orderBy(plain, ['major', 'minor', 'patch'], ['desc', 'desc', 'desc'])
 
         this.jsonObj = sorted;
 
-        console.log("MATCHED: ", JSON.stringify(sorted, null, 2))
+        console.log("SORTED: ", JSON.stringify(sorted, null, 2))
         return sorted;
 
         // let matched = _.filter(this.jsonObj, function(obj) { 
