@@ -48,12 +48,14 @@ async function run() {
     let latestVersion =  ''
 
     
-    let prereleaseIsNewest = release.compareReleases(tagsObj[0], jsonUtils.jsonObj[0], prefix)
+    
     
 
     if(startsWith != '') {
         jsonUtils.filterByStartsWith(startsWith);
     } 
+
+    let prereleaseIsNewest = release.compareReleases(tagsObj[0], jsonUtils.jsonObj[0], prefix)
 
     console.log("JSON UTILS AFTER FILTER: ", JSON.stringify(jsonUtils.jsonObj, null, 2))
    
