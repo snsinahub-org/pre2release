@@ -80,7 +80,7 @@ async function run() {
         // newVersion = jsonUtils.upgradeVersion(latestVersion, type, prefix);
 
 
-    } else if(REQUIRE_PRERELEASE == 'false' && prereleaseIsNewest == false) {
+    } else if(REQUIRE_PRERELEASE == 'false' && prereleaseIsNewest == false && jsonUtils.jsonObj.length > 0) {
         console.log("JSON UTILS INSIDE : ", JSON.stringify(jsonUtils.jsonObj, null, 2))
         latestVersion = jsonUtils.firstItem('tagName');
     } else {
