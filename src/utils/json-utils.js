@@ -112,10 +112,10 @@ module.exports = class JsonUtils {
         
         let sorted = _.orderBy(plain, ['major', 'minor', 'patch'], ['desc', 'desc', 'desc'])
 
-        this.jsonObj = sorted;
+        this.jsonObj = plain;
 
         console.log("SORTED: ", JSON.stringify(sorted, null, 2))
-        return sorted;
+        return plain;
 
         // let matched = _.filter(this.jsonObj, function(obj) { 
 
