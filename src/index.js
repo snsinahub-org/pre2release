@@ -56,6 +56,8 @@ async function run() {
         jsonUtils.filterByStartsWith(startsWith);
     } 
 
+    console.log("prereleaseIsNewest: ", JSON.stringify(tagsObj, null, 2))
+
     let prereleaseIsNewest = release.compareReleases(tagsObj[0], jsonUtils.jsonObj[0], prefix)
 
     console.log("JSON UTILS AFTER FILTER: ", JSON.stringify(jsonUtils.jsonObj, null, 2))
