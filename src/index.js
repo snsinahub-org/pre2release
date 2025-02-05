@@ -86,7 +86,7 @@ async function run() {
     } else {
         // core.setFailed('Error: No release found');
         fs.appendFileSync(process.env.GITHUB_OUTPUT, "version=" + 'Error: No release found');
-        core.setFailed('Error: No release found');
+        // core.setFailed('Error: No release found');
     }
 
     console.log(prereleaseIsNewest, latestVersion, REQUIRE_PRERELEASE)
