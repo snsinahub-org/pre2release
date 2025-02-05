@@ -107,7 +107,7 @@ module.exports = class JsonUtils {
             return obj
         })
         
-        let sorted = _.orderBy(plain, ['major', 'minor', 'patch'], ['desc', 'desc', 'desc'])
+        let sorted = _.orderBy(plain, ['major', 'minor', 'patch'], ['desc', 'asc', 'asc'])
 
         this.jsonObj = sorted;
 
