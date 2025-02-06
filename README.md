@@ -38,6 +38,13 @@ pre2release is an action to automatically finds repository's latest pre-release 
     # Default: 'true'
     # Accepted values: 'false', 'true'
     REQUIRE_PRERELEASE:
+
+
+    # Description:  You can search for a specific pre-release tag by adding starts-with: e.g. v2.2
+    # If you use starts-with, prefix will be ignored
+    # Required: false
+    # Default: ''
+    starts-with:
     
     
 ```
