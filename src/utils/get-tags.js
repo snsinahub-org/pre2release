@@ -58,7 +58,7 @@ module.exports = class GetReleaseTags {
                     `
                     query ($cursor: String) {
                         repository(owner: "${owner}", name: "${repo}") {
-                        releases(first: 100, after: $cursor, orderBy: {field: CREATED_AT, direction: DESC}) {
+                        releases(first: 100, after: $cursor, isPrerelease: ${prerelease} orderBy: {field: CREATED_AT, direction: DESC}) {
                             nodes {
                                 name
                                 createdAt
@@ -68,8 +68,7 @@ module.exports = class GetReleaseTags {
                             pageInfo {
                                 startCursor
                                 endCursor
-                                hasNextPage
-                                isPrerelease
+                                hasNextPage                               
                             }
                         }
                         }
@@ -79,7 +78,6 @@ module.exports = class GetReleaseTags {
                         owner: owner,
                         repo: repo,
                         cursor: endCursor,
-                        isPrerelease: prerelease,
                     }
                 );
         
