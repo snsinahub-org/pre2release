@@ -62,6 +62,7 @@ async function run() {
 
     if(startsWith.trim() != '') {
         jsonUtils.filterByStartsWith(startsWith);
+        jsonUtils.filterNoPrefix()
     } 
 
     console.log("prereleaseIsNewest: ", JSON.stringify(jsonUtils.jsonObj, null, 2))
