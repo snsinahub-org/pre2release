@@ -71,12 +71,13 @@ async function run() {
 
     if(tagsObj.length > 0 && jsonUtils.jsonObj.length > 0) {
 
+        console.log("Condition met: ")
         let prereleaseIsNewest = release.compareReleases(tagsObj[0], jsonUtils.jsonObj[0], prefix)
     } 
         
 
-    console.log("JSON UTILS AFTER FILTER: ", JSON.stringify(jsonUtils.jsonObj, null, 2))
-    console.log("tagsObj AFTER FILTER: ", JSON.stringify(tagsObj, null, 2))
+    console.log("JSON UTILS AFTER FILTER: ", JSON.stringify(jsonUtils.jsonObj.length, null, 2))
+    console.log("tagsObj AFTER FILTER: ", JSON.stringify(tagsObj.length, null, 2))
    
     
     if(jsonUtils.jsonObj.length > 0 && prereleaseIsNewest == true){
