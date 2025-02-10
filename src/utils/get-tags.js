@@ -78,7 +78,6 @@ module.exports = class GetReleaseTags {
                         owner: owner,
                         repo: repo,
                         cursor: endCursor,
-                        isPrerelease: prerelease,
                     }
                 );
         
