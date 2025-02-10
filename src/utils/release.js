@@ -87,10 +87,11 @@ module.exports = class Releases {
         console.log("first: ", JSON.stringify(first, null, 2))
         let firstTag = this.convertTagToInt(first.tagName, prefix)
         let firstMatchedTag = firstMatched.tag
-        if(firstMatchedTag >= firstTag) {
-            return true
-        } else {
-            return false
-        }
+        return true;
+        // if(firstMatchedTag >= firstTag) {
+        //     return true
+        // } else {
+        //     return false
+        // }
     }
 }
