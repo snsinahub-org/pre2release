@@ -65,7 +65,7 @@ async function run() {
         jsonUtils.filterNoPrefix()
     } 
 
-    console.log("prereleaseIsNewest: ", JSON.stringify(jsonUtils.jsonObj, null, 2))
+    
 
     let prereleaseIsNewest = false
 
@@ -78,7 +78,7 @@ async function run() {
 
     console.log("JSON UTILS AFTER FILTER: ", JSON.stringify(jsonUtils.jsonObj.length, null, 2))
     console.log("tagsObj AFTER FILTER: ", JSON.stringify(tagsObj.length, null, 2))
-   
+    console.log("prereleaseIsNewest: ", JSON.stringify(jsonUtils.jsonObj, null, 2))
     
     if(jsonUtils.jsonObj.length > 0 && prereleaseIsNewest == true){
         console.log("JSON UTILS FIRST IF : ", JSON.stringify(jsonUtils.jsonObj, null, 2))
