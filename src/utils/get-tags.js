@@ -12,7 +12,7 @@ module.exports = class GetReleaseTags {
     }
  
     getTags(jsonObj) {
-        return jsonObj['releases']['nodes'];
+        return jsonObj;
     }
 
     async getAllTags2(owner, repo, myToken) {
@@ -69,6 +69,7 @@ module.exports = class GetReleaseTags {
                                 startCursor
                                 endCursor
                                 hasNextPage
+                                isPrerelease
                             }
                         }
                         }
@@ -78,6 +79,7 @@ module.exports = class GetReleaseTags {
                         owner: owner,
                         repo: repo,
                         cursor: endCursor,
+                        isPrerelease: prerelease,
                     }
                 );
         
