@@ -76,6 +76,7 @@ async function run() {
         
 
     console.log("JSON UTILS AFTER FILTER: ", JSON.stringify(jsonUtils.jsonObj, null, 2))
+    console.log("tagsObj AFTER FILTER: ", JSON.stringify(tagsObj, null, 2))
    
     
     if(jsonUtils.jsonObj.length > 0 && prereleaseIsNewest == true){
