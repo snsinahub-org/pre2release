@@ -47,7 +47,7 @@ module.exports = class JsonUtils {
             let matched = _.filter(this.jsonObj, function(obj) {
                 return obj.isPrerelease == true
             })
-            console.log("MATCHED: ", JSON.stringify(matched, null, 2))
+            console.log("MATCHED with prerelease: ", JSON.stringify(matched, null, 2))
         }
         let first = this.jsonObj[0][keyName]
         return first
