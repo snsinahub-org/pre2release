@@ -62,7 +62,7 @@ async function run() {
 
     if(startsWith.trim() != '') {
         jsonUtils.filterByStartsWith(startsWith);
-        jsonUtils.filterNoPrefix()
+        // jsonUtils.filterNoPrefix()
     } 
 
     
