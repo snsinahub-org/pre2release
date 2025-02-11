@@ -39,9 +39,10 @@ module.exports = class JsonUtils {
     }
 
     // return first item after sorting tags
-    firstItem(keyName) {
+    firstItem(keyName, prerelease) {
         console.log("KEYNAME: ", keyName)
         console.log("JSON OBJ: ", JSON.stringify(this.jsonObj, null, 2))
+        console.log("PRERELEASE: ", prerelease)
         let first = this.jsonObj[0][keyName]
         return first
     }

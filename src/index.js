@@ -61,6 +61,7 @@ async function run() {
     
 
     if(startsWith.trim() != '') {
+        prefix = '';
         jsonUtils.filterByStartsWith(startsWith);
         // jsonUtils.filterNoPrefix()
     } 
@@ -82,7 +83,7 @@ async function run() {
     
     if(jsonUtils.jsonObj.length > 0 && prereleaseIsNewest != true){
         console.log("JSON UTILS FIRST IF : ", JSON.stringify(jsonUtils.jsonObj, null, 2))
-        latestVersion = jsonUtils.firstItem('tagName');
+        latestVersion = jsonUtils.firstItem('tagName', prerelease);
         let idObject = await release.getReleaseID(owner, repo, latestVersion)
         let latestRelease = await release.updateReleaseToLatest(owner, repo, idObject)
 
@@ -91,7 +92,7 @@ async function run() {
 
     } else if(REQUIRE_PRERELEASE == 'false' && prereleaseIsNewest == false && jsonUtils.jsonObj.length > 0) {
         console.log("JSON UTILS INSIDE : ", JSON.stringify(jsonUtils.jsonObj, null, 2))
-        latestVersion = jsonUtils.firstItem('tagName');
+        latestVersion = jsonUtils.firstItem('tagName', prerelease);
     } else {
         // core.setFailed('Error: No release found');
         fs.appendFileSync(process.env.GITHUB_OUTPUT, "version=" + 'Error: No release found');
