@@ -45,9 +45,13 @@ module.exports = class JsonUtils {
             let matched = _.filter(this.jsonObj, function(obj) {
                 return obj.isPrerelease == true
             })
-            first = matched[0][keyName]
+            if(matched.length > 0) {                
+                first = matched[0][keyName]
+            }
         } else {
-            first = this.jsonObj[0][keyName]
+            if(this.jsonObj.length > 0) {
+                first = this.jsonObj[0][keyName]
+            }
         }        
         return first
     }
