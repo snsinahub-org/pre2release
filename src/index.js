@@ -20,27 +20,11 @@ async function run() {
     let startsWith = core.getInput('starts-with');
 
 
-
-
-    // class initializations
     const release = new Release(myToken);    
     
-    
-    
     const repository = await tags.getAllTags(owner, repo, myToken, prerelease);
-    console.log("=====================================")
-
-    console.log("ALL TAGS: ", JSON.stringify(repository, null, 2))
-
-
-    console.log("=====================================")
-    
     let tagsObj = tags.getTags(repository);
-    const jsonUtils = new JsonUtils(tagsObj); 
-
-    console.log("TAGS OBJECT: ", JSON.stringify(tagsObj, null, 2))
-    console.log("JSON UTILS: ", JSON.stringify(jsonUtils.jsonObj, null, 2))
-    console.log("startsWith: '", startsWith, "'")
+    const jsonUtils = new JsonUtils(tagsObj);    
     
     if(startsWith.trim() ==  '') {       
         if(prefix == '') {
@@ -63,45 +47,28 @@ async function run() {
     if(startsWith.trim() != '') {
         prefix = '';
         jsonUtils.filterByStartsWith(startsWith);
-        // jsonUtils.filterNoPrefix()
     } 
 
     
 
     let prereleaseIsNewest = false
 
-    if(tagsObj.length > 0 && jsonUtils.jsonObj.length > 0) {
-
-        console.log("Condition met: ")
+    if(tagsObj.length > 0 && jsonUtils.jsonObj.length > 0) {        
         let prereleaseIsNewest = release.compareReleases(tagsObj[0], jsonUtils.jsonObj[0], prefix)
     } 
-        
-
-    console.log("JSON UTILS AFTER FILTER: ", JSON.stringify(jsonUtils.jsonObj.length, null, 2))
-    console.log("tagsObj AFTER FILTER: ", JSON.stringify(tagsObj.length, null, 2))
-    console.log("prereleaseIsNewest: ", JSON.stringify(jsonUtils.jsonObj, null, 2))
     
-    if(jsonUtils.jsonObj.length > 0 && prereleaseIsNewest != true){
-        console.log("JSON UTILS FIRST IF : ", JSON.stringify(jsonUtils.jsonObj, null, 2))
+    
+    if(jsonUtils.jsonObj.length > 0 && prereleaseIsNewest != true){        
         latestVersion = jsonUtils.firstItem('tagName', prerelease);
         let idObject = await release.getReleaseID(owner, repo, latestVersion)
-        let latestRelease = await release.updateReleaseToLatest(owner, repo, idObject)
-
-        // newVersion = jsonUtils.upgradeVersion(latestVersion, type, prefix);
-
-
-    } else if(REQUIRE_PRERELEASE == 'false' && prereleaseIsNewest == false && jsonUtils.jsonObj.length > 0) {
-        console.log("JSON UTILS INSIDE : ", JSON.stringify(jsonUtils.jsonObj, null, 2))
+        let latestRelease = await release.updateReleaseToLatest(owner, repo, idObject) 
+    } else if(REQUIRE_PRERELEASE == 'false' && prereleaseIsNewest == false && jsonUtils.jsonObj.length > 0) {        
         latestVersion = jsonUtils.firstItem('tagName', prerelease);
-    } else {
-        // core.setFailed('Error: No release found');
-        fs.appendFileSync(process.env.GITHUB_OUTPUT, "version=" + 'Error: No release found');
-        // core.setFailed('Error: No release found');
+    } else {        
+        fs.appendFileSync(process.env.GITHUB_OUTPUT, "version=" + 'Error: No release found');        
     }
 
-    console.log(prereleaseIsNewest, latestVersion, REQUIRE_PRERELEASE)
-
-    console.log("ONE TAG AFTER: ", latestVersion)
+    console.log("TAG: ", latestVersion)
     fs.appendFileSync(process.env.GITHUB_OUTPUT, "version=" + latestVersion);
     const octokit = github.getOctokit(myToken);
 }
