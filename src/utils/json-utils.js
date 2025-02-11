@@ -39,10 +39,20 @@ module.exports = class JsonUtils {
     }
 
     // return first item after sorting tags
-    firstItem(keyName) {
-        console.log("KEYNAME: ", keyName)
-        console.log("JSON OBJ: ", JSON.stringify(this.jsonObj, null, 2))
-        let first = this.jsonObj[0][keyName]
+    firstItem(keyName, prerelease) {
+        let first = ''
+        if(prerelease == 'true') {
+            let matched = _.filter(this.jsonObj, function(obj) {
+                return obj.isPrerelease == true
+            })
+            if(matched.length > 0) {                
+                first = matched[0][keyName]
+            }
+        } else {
+            if(this.jsonObj.length > 0) {
+                first = this.jsonObj[0][keyName]
+            }
+        }        
         return first
     }
 
@@ -107,14 +117,11 @@ module.exports = class JsonUtils {
             return obj
         })
 
-        console.log("MATCHED: ", JSON.stringify(matched, null, 2))
-        console.log("PLAIN: ", JSON.stringify(plain, null, 2))
         
         let sorted = _.orderBy(plain, ['major', 'minor', 'patch'], ['desc', 'desc', 'desc'])
 
         this.jsonObj = plain;
 
-        console.log("SORTED: ", JSON.stringify(sorted, null, 2))
         return plain;
 
         // let matched = _.filter(this.jsonObj, function(obj) { 
