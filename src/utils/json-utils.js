@@ -43,13 +43,16 @@ module.exports = class JsonUtils {
         console.log("KEYNAME: ", keyName)
         console.log("JSON OBJ: ", JSON.stringify(this.jsonObj, null, 2))
         console.log("PRERELEASE: ", prerelease)
+        let first = ''
         if(prerelease == 'true') {
             let matched = _.filter(this.jsonObj, function(obj) {
                 return obj.isPrerelease == true
             })
             console.log("MATCHED with prerelease: ", JSON.stringify(matched, null, 2))
-        }
-        let first = this.jsonObj[0][keyName]
+            first = matched[0][keyName]
+        } else {
+            first = this.jsonObj[0][keyName]
+        }        
         return first
     }
 
