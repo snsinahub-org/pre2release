@@ -60,8 +60,11 @@ async function run() {
     
     if(jsonUtils.jsonObj.length > 0 && prereleaseIsNewest != true){        
         latestVersion = jsonUtils.firstItem('tagName', prerelease);
-        let idObject = await release.getReleaseID(owner, repo, latestVersion)
-        let latestRelease = await release.updateReleaseToLatest(owner, repo, idObject) 
+        if(latestVersion != '') {
+            
+            let idObject = await release.getReleaseID(owner, repo, latestVersion)
+            let latestRelease = await release.updateReleaseToLatest(owner, repo, idObject) 
+        }
     } else if(REQUIRE_PRERELEASE == 'false' && prereleaseIsNewest == false && jsonUtils.jsonObj.length > 0) {        
         latestVersion = jsonUtils.firstItem('tagName', prerelease);
     } else {        
