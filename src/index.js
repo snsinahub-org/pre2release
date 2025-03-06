@@ -1,7 +1,9 @@
 const github = require('@actions/github');
 const core = require('@actions/core');
 const fs = require('fs');
-const { graphql } = require("@octokit/graphql");
+
+// const { graphql } = require("@octokit/graphql");
+import { graphql } from "@octokit/graphql";
 const getTags = require('./utils/get-tags.js');
 const JsonUtils = require('./utils/json-utils.js');
 const Release = require('./utils/release.js');
