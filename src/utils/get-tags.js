@@ -3,7 +3,7 @@
 import _ from 'lodash';
 import { graphql } from "@octokit/graphql";
 
-module.exports = class GetReleaseTags {
+class GetReleaseTags {
 
     constructor() {
 
@@ -93,3 +93,5 @@ module.exports = class GetReleaseTags {
         
     }
 }
+
+export default GetReleaseTags;

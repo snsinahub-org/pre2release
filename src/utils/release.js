@@ -5,7 +5,7 @@ import * as github from '@actions/github';
 import { Octokit } from "@octokit/rest";
 import fs from 'fs';
 
-module.exports = class Releases {
+class Releases {
     constructor(token) {
         this.token = token;
         this.ops = {
@@ -88,3 +88,5 @@ module.exports = class Releases {
         return true;        
     }
 }
+
+export default Releases;

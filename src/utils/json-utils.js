@@ -2,7 +2,7 @@
 
 import _ from 'lodash';
 
-module.exports = class JsonUtils {
+class JsonUtils {
 
     constructor(jsonObj) {
         this.jsonObj = jsonObj
@@ -191,3 +191,5 @@ module.exports = class JsonUtils {
         return sorted;
     }
 }
+
+export default JsonUtils;
