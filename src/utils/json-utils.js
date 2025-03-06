@@ -93,7 +93,10 @@ class JsonUtils {
 
     filterByStartsWith(startsWith) {
 
-        const regex = new RegExp(`^${startsWith.replace(/\./g, '\\.').replace(/\*/g, '.*')}`);
+        const safeStartsWith = _.escapeRegExp(startsWith);
+        const regex = new RegExp(`^${safeStartsWith.replace(/\./g, '\\.').replace(/\*/g, '.*')}`);
+
+        // const regex = new RegExp(`^${startsWith.replace(/\./g, '\\.').replace(/\*/g, '.*')}`);
 
         // Filter the jsonObj based on the parsed startsWith string
         let matched = _.filter(this.jsonObj, function(obj) {
