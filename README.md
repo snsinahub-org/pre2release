@@ -6,7 +6,7 @@ pre2release is an action to automatically finds repository's latest pre-release 
 ```YAML
 - name: 'Get json subbed'
   id: subbed
-  uses: "snsinahub-org/pre2release@v2.0.0"
+  uses: "snsinahub-org/pre2release@v2.1.1"
   with:
   
     # List of variables
@@ -58,7 +58,7 @@ pre2release is an action to automatically finds repository's latest pre-release 
 ## Example
 ```YAML
 name: pre2release
-description: pre2release@v2.0.0
+description: pre2release@v2.1.1
 on:
   workflow_dispatch:
   
@@ -74,7 +74,7 @@ jobs:
           node-version: 16      
       - name: 'Convert pre-release to release'
         id: version
-        uses: "snsinahub-org/pre2release@v2.0.0"
+        uses: "snsinahub-org/pre2release@v2.1.1"
         with:          
           prefix: 'v'
           REQUIRE_PRERELEASE: 'true'
