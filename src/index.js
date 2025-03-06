@@ -1,13 +1,12 @@
-const github = require('@actions/github');
-const core = require('@actions/core');
-const fs = require('fs');
+import * as core from '@actions/core';
+import * as github from '@actions/github';
 
-// const { graphql } = require("@octokit/graphql");
+import JsonUtils from './utils/json-utils.js';
+import Release from './utils/release.js';
+import fs from 'fs';
+import getTags from './utils/get-tags.js';
 import { graphql } from "@octokit/graphql";
-const getTags = require('./utils/get-tags.js');
-const JsonUtils = require('./utils/json-utils.js');
-const Release = require('./utils/release.js');
-const { json } = require('stream/consumers');
+// const { json } = require('stream/consumers');
 
 async function run() {
     // Inputs

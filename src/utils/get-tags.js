@@ -1,9 +1,7 @@
 'use strict';
 
-
-const _ = require('lodash');
-const { graphql } = require("@octokit/graphql");
-
+import _ from 'lodash';
+import { graphql } from "@octokit/graphql";
 
 module.exports = class GetReleaseTags {
 

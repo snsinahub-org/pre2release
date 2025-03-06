@@ -1,9 +1,9 @@
 'use strict';
 
-const { Octokit } = require("@octokit/rest");
-const github = require('@actions/github');
-const fs = require('fs');
+import * as github from '@actions/github';
 
+import { Octokit } from "@octokit/rest";
+import fs from 'fs';
 
 module.exports = class Releases {
     constructor(token) {
