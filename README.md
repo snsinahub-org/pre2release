@@ -20,7 +20,7 @@ pre2release is an action to automatically finds repository's latest pre-release 
     token: ${{ github.token }}
     
         
-    # Description:  You can add a prefix to semver e.g. v2.0.0 
+    # Description:  You can add a prefix to semver e.g. v2.1.1 
     # Required: false
     # Default: ''
     prefix: ''
